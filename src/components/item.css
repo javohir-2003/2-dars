@@ -1,0 +1,55 @@
+body{
+  background-color: chartreuse;
+}
+
+.container{
+  width: 940px;
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+  background-color: aqua;
+}
+
+.listbox{
+  padding-left: 0;
+  margin: 0;
+  list-style-type: none;
+  width: 500px;
+  margin-right: auto;
+  margin-left: auto;
+
+}
+
+.item-box{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.ItemEdit{
+  width: 100px;
+  height: 30px;
+}
+
+.ItemDelete{
+  width: 100px;
+  height: 30px;
+}
+
+.heading{
+  text-align: center;
+}
+
+.input{
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  text-align: center;
+}
+
+.checkinput{
+  width: 30px;
+  height: 30px;
+}
+
