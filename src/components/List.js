@@ -1,7 +1,9 @@
-const List = ({children}) =>{
-  return <ul>
-      {children}
-  </ul>
-}
 
-export default List;
+import './list.css'
+ export const List =({children}) =>{
+    return(
+    <ul className="List">
+        {children}
+    </ul>
+    )
+}

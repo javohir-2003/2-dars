@@ -28,28 +28,65 @@ body{
 }
 
 .ItemEdit{
-  width: 100px;
-  height: 30px;
+  padding: 5px 15px;
+  border-radius: 20%;
+  background-color: chartreuse;
 }
 
 .ItemDelete{
-  width: 100px;
-  height: 30px;
+background-color: darkorange;
+margin-left: 10px;
+padding: 5px 15px;
+  border-radius: 20%;
 }
 
 .heading{
   text-align: center;
 }
 
-.input{
-  display: block;
-  margin-right: auto;
-  margin-left: auto;
-  text-align: center;
+.Input{
+ 
+  caret-color: crimson;
+  color: darkblue;
 }
+
 
 .checkinput{
   width: 30px;
   height: 30px;
 }
 
+.item{
+  width: 500px;
+  margin-right: auto;
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.inputbox{
+  width: 200px;
+  display: flex;
+  align-items: center;
+justify-content: space-between;
+}
+
+.form{
+display: flex;
+width: 220px;
+display: block;
+margin-right: auto;
+margin-left: auto;
+text-align: center;
+}
+
+.idspan{
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.app-inner{
+  padding-top: 50px;
+  padding-bottom: 50px;
+}

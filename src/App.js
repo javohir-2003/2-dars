@@ -2,63 +2,63 @@
 
 
 
-import { useState } from "react";
-import "./App.css";
-import Item from "./components/Item";
+import { List } from "./components/List";
+import { Item } from "./components/Item";
+import {useState} from "react";
+
 
 function App() {
-  const [todos, setTodos] = useState([
-    {
-      name: "Kitob o'qish",
-      isComplate: true,
-     },
-    {
-    name: "Uxlash",
-    isComplate: false,
-   },
-  
-   {
-    name: "Yugurish",
-    isComplate: true,
-   }
-  ]);
 
-  let count=0
+ const [todo,setTodo]=useState(JSON.parse(window.localStorage.getItem("todo")) || [
+   {
+    id:1,
+    name:"Code yozish",
+    isComplate:true,
+  },
+  {
+    id:2,
+    name:"yugurish",
+    isComplate:false,
+  }
+
+ ]) 
+
 
   return (
-    <div className="todos-box">
-      <div className="container">
-        <h1 className="heading">Todo add</h1>
-        <div className="inner">
-          <form
-            onSubmit={(evt) => {
-              evt.preventDefault();
-              setTodos([
-                ...todos,
-                {
-      
-                  name: evt.target[0].value,
-                  isComplate: false,
-                },
-              ]);
-            }}
-          >
-            <input type={"text"} className="input" />
-          </form>
-          {todos.forEach((el)=>{
-            count++;
-            el.id=count;
-            console.log(el);
-          })}
-          <ul className="listbox">
-            {todos.map((el) => (
-      
-      
-              <Item text={el.name}  isComplate={el.isComplate} id={el.id} />
-            ))}
-          </ul>
-        </div>
-      </div>
+    <div className="App">
+ <div className="container">
+   
+     <div className="app-inner">
+       <form className=" form"  onSubmit={(evt)=>{
+        evt.preventDefault();
+        if(evt.target[0].value !== ""){
+          setTodo([
+            ...todo,{
+              id:todo.at(-1).id ? todo.at(-1).id + 1 : 1,
+              name:evt.target[0].value,
+              isComplate:false,
+            },   ]);
+            window.localStorage.setItem("todo",JSON.stringify(todo))
+        }
+          evt.target[0].value ="";
+        }}>
+         <input className="Input " placeholder="Todo..." type="text" name="text"  />
+         <button className="buttonli"  type="onSubmit " > Send </button>
+       </form>
+          <List >
+          {
+          
+           todo.map((el) =>(
+        <li className="item" key={el.id}>
+          <Item   item={el} todo={todo} setTodo={setTodo} />
+        </li>
+           ))
+          }
+          
+          </List>
+     </div>
+ </div>
+  
     </div>
   );
 }
